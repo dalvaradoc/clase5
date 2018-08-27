@@ -60,7 +60,9 @@ public class Cuenta {
     }
     
     public void consignar (double valor){
-        this.saldo += valor;
+        if (valor > 0){
+            this.saldo += valor;
+        }
     }
     
     public boolean retirar (double valor){
@@ -73,8 +75,12 @@ public class Cuenta {
     }
     
     public boolean cambiarClave (int clave){
-        setClave(clave);
-        return true;
+        if (clave != this.clave && clave > 0){
+            setClave(clave);
+            return true;
+        } else {
+            return false;
+        }
     }
     
     public double consultarSaldo (){
